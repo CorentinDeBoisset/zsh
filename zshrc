@@ -1,15 +1,10 @@
-autoload -U colors zsh-mime-setup select-word-style
-colors          # colors
-zsh-mime-setup  # run everything as if it's an executable
-select-word-style bash # ctrl+w on words
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-##
-# Prompt, with vcs inclusion
-##
-setopt PROMPT_SUBST     # allow funky stuff in prompt
-PROMPT='%B%F{green}%n@%m%f%u %T %F{blue}%~ %(!.#.$)%f%b '
-
-# RPROMPT='$(git-glimpse shell-prompt --zsh-mode)'
 
 ##
 # Completion
@@ -122,3 +117,7 @@ print -Pn "\e]0; %n@%M: %~\a"                # terminal title
 
 # echo $(realpath "${0:a}")
 source "$(realpath "${0:a:h}")/aliases"      # aliases
+source "$(realpath "${0:a:h}")/powerlevel10k/powerlevel10k.zsh-theme"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
