@@ -16,9 +16,12 @@ fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
 # Should be called before compinit
 zmodload zsh/complist
 
-autoload -U compinit
+autoload -U compinit select-word-style
 compinit -i
 _comp_options+=(globdots) # With hidden files
+
+# Select word like bash
+select-word-style bash
 
 setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
 setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
