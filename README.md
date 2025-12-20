@@ -1,7 +1,12 @@
 # Zsh configuration
 
+Install the configuration with:
 
-To enable the configuration, run the following:
+```
+git clone --recursive git@github.com:CorentinDeBoisset/zsh.git
+```
+
+Then enable the configuration with:
 
 ```bash
 echo "source ./zsh/zshenv" > "$HOME/.zshenv"
